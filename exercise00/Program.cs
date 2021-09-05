@@ -9,9 +9,10 @@ namespace exercise00
 
             string input = Console.ReadLine();
             int numInput;
-            Int32.TryParse(input, out numInput);
+
             if(Int32.TryParse(input, out numInput))
             {
+                Int32.TryParse(input, out numInput);
                 if(IsLeapYear(numInput))
                 {
                     Console.WriteLine("yay");
@@ -29,6 +30,10 @@ namespace exercise00
 
         public static bool IsLeapYear(int year)
         {
+            if(year < 1582)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
             if(year%400 == 0)
             {   
                 return true;

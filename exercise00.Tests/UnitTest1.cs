@@ -2,10 +2,15 @@ using System;
 using Xunit;
 using System.IO;
 
+
 namespace exercise00.Tests
 {
     public class UnitTest1
     {
+        [Fact]
+        public void Test1()
+        {
+
         [Theory]
         [InlineData(4)]
         [InlineData(16)]

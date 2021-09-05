@@ -7,9 +7,11 @@ namespace exercise00.Tests
 {
     public class UnitTest1
     {
+
         [Fact]
         public void Test1()
         {
+
 
         [Theory]
         [InlineData(4)]
@@ -52,5 +54,51 @@ namespace exercise00.Tests
             var actual = Program.IsLeapYear(value);
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Main_IsGregorianYear_Print_Yay()
+        {
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            var reader = new StringReader("400");
+            Console.SetIn(reader);
+            Program.Main(new string[0]);
+        
+            string actual = writer.GetStringBuilder().ToString().Trim();
+            
+            Assert.Equal("yay", actual);
+        }
+
+        [Fact]
+        public void Main_NotGregorianYear_Print_Nay()
+        {
+
+            var writer = new StringWriter();
+            var reader = new StringReader("300");
+            Console.SetIn(reader);
+            Console.SetOut(writer);
+            Program.Main(new string[0]);
+            
+            string actual = writer.GetStringBuilder().ToString().Trim();
+            
+            Assert.Equal("nay", actual);
+        }
+
+        [Fact]
+        public void Main_Input_NaN()
+        {
+            var writer = new StringWriter();
+            var reader = new StringReader("four");
+            Console.SetIn(reader);
+            Console.SetOut(writer);
+            Program.Main(new string[0]);
+            
+            string actual = writer.GetStringBuilder().ToString().Trim();
+            
+            Assert.Equal("NaN", actual);
+        }
     }
+
+    }
+
 }

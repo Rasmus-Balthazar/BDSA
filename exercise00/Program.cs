@@ -2,10 +2,21 @@
 
 namespace exercise00
 {
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+
     public class Program
     {
         public static void Main(string[] args)
         {
+
             string input = Console.ReadLine();
             int numInput;
             Int32.TryParse(input, out numInput);
@@ -25,6 +36,8 @@ namespace exercise00
                 Console.WriteLine("NaN");
             }
             
+            Console.WriteLine("Hello World!");
+
         }
 
         public static bool IsLeapYear(int year)
@@ -32,6 +45,7 @@ namespace exercise00
             if(year%400 == 0)
             {   
                 return true;
+
             } 
             else if(year%100 == 0)
             {
@@ -42,6 +56,15 @@ namespace exercise00
                 return true;
             } 
             else
+
+            } else if(year%100 == 0)
+            {
+                return false;
+            } else if(year%4 == 0)
+            {
+                return true;
+            } else
+
             {
                 return false;
             }

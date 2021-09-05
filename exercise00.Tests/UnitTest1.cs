@@ -2,10 +2,17 @@ using System;
 using Xunit;
 using System.IO;
 
+
 namespace exercise00.Tests
 {
     public class UnitTest1
     {
+
+        [Fact]
+        public void Test1()
+        {
+
+
         [Theory]
         [InlineData(4)]
         [InlineData(16)]
@@ -47,6 +54,7 @@ namespace exercise00.Tests
             var actual = Program.IsLeapYear(value);
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void Main_IsGregorianYear_Print_Yay()
         {
@@ -91,5 +99,6 @@ namespace exercise00.Tests
         }
     }
 
+    }
 
 }

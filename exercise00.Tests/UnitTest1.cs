@@ -8,9 +8,9 @@ namespace exercise00.Tests
     public class UnitTest1
     {
         [Theory]
-        [InlineData(4)]
-        [InlineData(16)]
-        [InlineData(20)]
+        [InlineData(1584)]
+        [InlineData(1592)]
+        [InlineData(1604)]
         public void Year_DivisableBy4_ReturnTrue(int value)
         {
             bool expected = true;
@@ -19,8 +19,8 @@ namespace exercise00.Tests
         }
 
         [Theory]
-        [InlineData(13)]
-        [InlineData(17)]
+        [InlineData(1582)]
+        [InlineData(1591)]
         public void Year_NotDivisableBy4_ReturnFalse(int value)
         {
             bool expected = false;
@@ -29,7 +29,7 @@ namespace exercise00.Tests
         }
 
         [Theory]
-        [InlineData(400)]
+        [InlineData(2400)]
         [InlineData(1600)]
         [InlineData(2000)]
         public void Year_DivisableBy400_ReturnFalse(int value)
@@ -40,9 +40,9 @@ namespace exercise00.Tests
         }
 
         [Theory]
-        [InlineData(1300)]
-        [InlineData(600)]
-        [InlineData(300)]
+        [InlineData(1700)]
+        [InlineData(1800)]
+        [InlineData(2100)]
         public void Year_DivisableBy100_Not400_ReturnFalse(int value){
             bool expected = false;
             var actual = Program.IsLeapYear(value);
@@ -54,7 +54,7 @@ namespace exercise00.Tests
         {
             var writer = new StringWriter();
             Console.SetOut(writer);
-            var reader = new StringReader("400");
+            var reader = new StringReader("1600");
             Console.SetIn(reader);
             Program.Main(new string[0]);
         
@@ -68,7 +68,7 @@ namespace exercise00.Tests
         {
 
             var writer = new StringWriter();
-            var reader = new StringReader("300");
+            var reader = new StringReader("1599");
             Console.SetIn(reader);
             Console.SetOut(writer);
             Program.Main(new string[0]);
@@ -91,5 +91,14 @@ namespace exercise00.Tests
             
             Assert.Equal("NaN", actual);
         }
+
+        [Theory]
+        [InlineData(1581)]
+        [InlineData(0)]
+        public void Year_Below_1582(int value)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => Program.IsLeapYear(value));
+        }
+
     }
 }

@@ -33,8 +33,8 @@ namespace exercise00
             if(year < 1582)
             {
                 throw new ArgumentOutOfRangeException();
-            }
-            if(year%400 == 0)
+            } 
+            else if(year%400 == 0)
             {   
                 return true;
 
